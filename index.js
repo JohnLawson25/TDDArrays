@@ -10,7 +10,7 @@
  * getFirst([true,false,true]); // true
  */
 export function getFirst(array) {
-  // TODO
+  return (array[0]);
 }
 
 /**
@@ -25,7 +25,7 @@ export function getFirst(array) {
  * getLast([true,false,true]); // true
  */
 export function getLast(array) {
-  // TODO
+  return (array[array.length - 1]);
 }
 
 /**
@@ -42,8 +42,25 @@ export function getLast(array) {
  * getFirstLast([42]); // [42]
  */
 export function getFirstLast(array) {
-  // TODO
+  const first = array[0];
+  
+  const last = array[array.length - 1];
+  
+  const newarr = [];
+
+  if(array === []){
+    return []
+  }
+  else if(array.length > 1){
+    newarr.push(first);
+    newarr.push(last);
+  }
+  else{
+    return array;
+  }
+  return newarr;
 }
+
 
 /**
  * @param {string} str1 - the first string
@@ -59,7 +76,15 @@ export function getFirstLast(array) {
  * sharesFirstLetter("cat", "dog"); // false
  */
 export function sharesFirstLetter(str1, str2) {
-  // TODO
+  if(str1 === "" || str2 === ""){
+    return false;
+  }
+  else if (str1[0] === str2[0]){
+    return true;
+  }
+  else{
+    return false;
+  }
 }
 
 /**
@@ -74,7 +99,11 @@ export function sharesFirstLetter(str1, str2) {
  * quintuple([]); // []
  */
 export function quintuple(numbers) {
-  // TODO
+  const newarr = []
+  for(let i = 0; i <= numbers.length - 1; i++){
+    newarr.push(numbers[i] * 5)
+  }
+  return newarr;
 }
 
 /**
@@ -95,7 +124,16 @@ export function quintuple(numbers) {
  * pluralize([]); // []
  */
 export function pluralize(words) {
-  // TODO
+  const newArr = [];
+  for(let i = 0; i < words.length; i++){
+    if (words[i].endsWith("s")){
+      newArr.push(words[i] + "es");
+    }
+    else{
+      newArr.push(words[i] + "s");
+    }
+  }
+  return newArr;
 }
 
 /**
@@ -112,7 +150,13 @@ export function pluralize(words) {
  * countAttendance([]); // 0
  */
 export function countAttendance(attendance) {
-  // TODO
+  let present = 0;
+  for(let i = 0; i <= attendance.length -1; i++){
+    if (attendance[i] === true){
+      present++
+    }
+  }
+  return present;
 }
 
 /**
@@ -128,8 +172,18 @@ export function countAttendance(attendance) {
  * getLongestWord(["a", "ab", "abc"]); // "abc"
  */
 export function getLongestWord(sentence) {
-  // TODO
+  if( sentence.length === 0){      
+    return null;}
+    let longest = "";
+  for(let i = 0; i < sentence.length; i++){
+    if (sentence[i].length > longest.length){
+      longest = sentence[i];
+    }
+  }
+  return longest;
 }
+
+
 
 /**
  * @param {string[]} playlist - an array of song titles
@@ -145,8 +199,14 @@ export function getLongestWord(sentence) {
  * findSong([], "Midnight Drive"); // -1
  */
 export function findSong(playlist, song) {
-  // TODO
-}
+  for (let i = 0; i <= playlist.length; i++){
+    if(playlist[i] === song){
+      return playlist.indexOf(song);
+    }
+      }
+      return -1
+    }
+    
 
 /**
  * @param {string[][]} map - a 2D array in which each element is a string that
@@ -162,5 +222,18 @@ export function findSong(playlist, song) {
  * findSpy([["tree","lamp"],["pigeon","guard"]]); // null
  */
 export function findSpy(map) {
-  // TODO
-}
+  let result =[-1, -1];
+  for (let i = 0; i < map.length; i++){
+    for (let j = 0; j < map[i].length; j++)
+      if (map[i][j] === "spy"){
+        result[0] = i;
+        result[1] = j;
+        return result;
+      }
+      
+      }
+      return null;
+      }
+  
+
+  

@@ -153,7 +153,6 @@ describe("countAttendance", function () {
     expect(countAttendance([true, true, true])).toBe(3);
   });
 });
-
 describe("getLongestWord", function () {
   it("returns the first longest word", function () {
     expect(getLongestWord(["sphinx", "of", "black", "quartz"])).toBe("sphinx");
